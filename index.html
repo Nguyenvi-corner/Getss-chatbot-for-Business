@@ -1,348 +1,137 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trợ lý kinh doanh</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Trợ lý Kinh doanh</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            overflow-x: hidden;
-            background-color: #F9FAFB; /* Màu nền xám trắng */
-            color: #0F172A; /* Màu chữ xanh đen */
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #E5E7EB; /* Màu nền xám nhạt hơn cho phần hero */
-            background-image: linear-gradient(to bottom, #E5E7EB, #F9FAFB);
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #292f62;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #0F172A; /* Màu chữ xanh đen */
-        }
-        .cta {
-            background-color: #00FFFF;
-            color: #0F172A;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            min-width: 150px;
-            text-align: center;
-        }
-        .cta:hover {
-            background-color: #33FFCC;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        }
-        .features {
-            padding: 80px 0;
-            text-align: center;
-        }
-        .features h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            color: #292f62;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-        .feature {
-            background-color: #FFFFFF; /* Màu nền trắng cho các feature box */
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Độ bóng nhẹ */
-            text-align: center;
-            color: #0F172A; /* Màu chữ xanh đen */
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #D1D5DB; /* Màu viền xám nhạt */
-        }
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-            border-color: #00FFFF;
-        }
-        .product-details {
-            padding: 80px 0;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .product-details h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #292f62;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .product-details p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #0F172A; /* Màu chữ xanh đen */
-            line-height: 1.7;
-            text-align: center;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .product-details ul {
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .product-details ul li {
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-            color: #0F172A; /* Màu chữ xanh đen */
-            display: flex;
-            align-items: flex-start;
-        }
-        .product-details ul li span {
-            font-weight: bold;
-            color: #00FFFF;
-            margin-right: 8px;
-            min-width: 24px;
-            text-align: center;
-        }
-        .product-details ul li::before {
-            content: '';
-            margin-right: 10px;
-        }
-        .product-details ul li i {
-            color: #00FFFF;
-            margin-right: 5px;
-        }
-        footer {
-            background-color: #0A192F;
-            color: #F8FAFC;
-            padding: 20px;
-            text-align: center;
-            margin-top: auto;
-            border-top: 1px solid #4A5568;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero {
-            width: 100%;
-            text-align: center;
-        }
-
-        .product-details {
-            width: 100%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .product-details h2,
-        .product-details p,
-        .product-details ul {
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-        }
-
-        .product-details ul {
-            padding-left: 20px;
-        }
-
-        .product-details ul li {
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .product-details ul li span {
-            margin-right: 8px;
-            min-width: 24px;
-            text-align: center;
-        }
-        .highlighted-text {
-            font-weight: bold;
-            color: #FFD700; /* Màu vàng gold */
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); /* Hiệu ứng sáng như màu xanh */
-        }
-        .back-to-home {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .feature-details {
-            margin-top: 15px;
-            padding: 15px;
-            background-color: #F9FAFB; /* Màu nền xám trắng cho feature details */
-            border-radius: 5px;
-            color: #0F172A; /* Màu chữ xanh đen */
-            line-height: 1.7;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .feature-details h3{
-            font-size: 2.5rem;
-            color: #292f62;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .feature-item {
-            background-color: #FFF;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 20px;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-item h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #00FFFF;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-            text-align: left;
-        }
-
-        .feature-item p{
-            font-size: 1.1rem;
-            color: #0F172A;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .feature-item ul {
-            list-style: disc;
-            padding-left: 20px;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .feature-item ul li {
-            margin-bottom: 0.75rem;
-            display: list-item;
-            text-align: left;
-            font-size: 1.1rem;
-            color: #0F172A;
-        }
-
-        .feature-item span {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            text-align: left;
-        }
-
-    </style>
-</head>
-<body>
-    <div class="container">
-        <section class="hero">
-            <h1 style="color: #292f62;">Trợ lý kinh doanh</h1>
-            <p>Trợ lý AI mạnh mẽ giúp bạn tối ưu hóa quy trình kinh doanh và tăng trưởng doanh số.</p>
-        </section>
-        <section id="product-details" class="product-details">
-            <h2 style="color: #292f62;">Trợ lý kinh doanh AI - Giải pháp toàn diện cho đội ngũ kinh doanh</h2>
-            <p>
-                Chào mừng bạn đến với trợ lý kinh doanh AI, người trợ lý đắc lực của bạn trong mọi hoạt động kinh doanh.
-                Với khả năng tiếp nhận và phân tích báo cáo, soạn thảo email chuyên nghiệp, tư vấn chiến lược và kế hoạch hành động, chúng tôi giúp bạn:
-            </p>
-            <ul>
-                <li>Nắm bắt thông tin nhanh chóng.</li>
-                <li>Tối ưu hóa giao tiếp.</li>
-                <li>Đạt được mục tiêu kinh doanh một cách hiệu quả.</li>
-            </ul>
-            <p>
-                Trợ lý kinh doanh AI không chỉ là một công cụ, mà còn là một người đồng đội đáng tin cậy, luôn sẵn sàng hỗ trợ bạn chinh phục các mục tiêu kinh doanh. 🚀💼
-            </p>
-            <section class="feature-details">
-                <h2 style="color: #292f62; font-size: 2.5rem; margin-bottom: 2rem; text-align: center;">Các công năng nổi bật của trợ lý kinh doanh AI</h2>
-                <div class="feature-item">
-                    <h3 style="color: #00008B; text-align: left;">Tiếp nhận báo cáo</h3>
-                    <p>Dễ dàng gửi báo cáo tuần và được ghi nhận nhanh chóng, giúp bạn theo dõi tiến độ công việc hiệu quả.</p>
-                </div>
-                <div class="feature-item">
-                    <h3 style="color: #00008B; text-align: left;">Đọc và phân tích báo cáo</h3>
-                    <p>Tiết kiệm thời gian với khả năng phân tích báo cáo tự động, giúp bạn nắm bắt thông tin quan trọng và đưa ra quyết định chính xác.</p>
-                </div>
-                <div class="feature-item">
-                    <h3 style="color: #00008B; text-align: left;">Tư vấn chiến lược kinh doanh</h3>
-                    <p>Tiếp cận khách hàng hiệu quả hơn với các chiến lược kinh doanh được cá nhân hóa, tăng cường khả năng cạnh tranh.</p>
-                </div>
-                <div class="feature-item">
-                    <h3 style="color: #00008B; text-align: left;">Tư vấn kế hoạch hành động</h3>
-                    <p>Xây dựng kế hoạch hành động chi tiết để đạt được mục tiêu cá nhân và nhóm, nâng cao hiệu suất làm việc và sự gắn kết.</p>
-                </div>
-            </section>
-        </section>
-    </div>
-    <footer>
-        <p>© 2025 Chatbot AI. All Rights Reserved.</p>
-    </footer>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
     <script>
-        window.customChatbotConfig = 
-        {
-          token: 'X6LAx4LikFN4JOR2',
-          baseUrl: 'https://easyai.com.vn/embed', 
-          imageToggle: 'https://lovinbot-ai.b-cdn.net/upload_files/19a6178d-c899-437a-b42d-30774dca322e/4efdea17-bb7e-4cd9-a4b4-24e248cb1d14.png', 
-          colorBg: '#292f62',
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#00FFFF',
+                        'darkBlue': '#0A192F',
+                        'navyText': '#292f62',
+                    },
+                },
+            },
         }
-      </script>
-      <script  
-        src="https://cdn.jsdelivr.net/npm/custom-embedded-chatbot@latest"
-        id="X6LAx4LikFN4JOR2" 
-        defer
-      > 
-      </script>
+    </script>
+    <style>
+      .animate-fadeIn {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .material-icons {
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;  /* Preferred icon size */
+        display: inline-block;
+        line-height: 1;
+        text-transform: lowercase;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+
+        /* Support for all WebKit browsers. */
+        -webkit-font-smoothing: antialiased;
+        /* Support for Safari. */
+        text-rendering: optimizeLegibility;
+
+        /* Support for IE. */
+        -moz-osx-font-smoothing: grayscale;
+        /* Support for Firefox. */
+        font-feature-settings: 'liga';
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="font-inter bg-gray-50 text-slate-900 flex flex-col min-h-screen">
+    <section class="bg-gradient-to-b from-gray-200 to-gray-50 py-28 text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold text-navyText drop-shadow-lg animate-pulse">
+                Trợ lý Kinh doanh AI
+            </h1>
+            <p class="mt-6 text-xl md:text-2xl leading-relaxed text-slate-700 animate-fadeIn">
+                Hỗ trợ bạn tự động hóa, tối ưu hóa và tăng trưởng kinh doanh thông minh.
+            </p>
+            <a href="#features" class="inline-block mt-8 px-8 py-4 bg-primary text-slate-900 rounded-lg shadow-lg hover:bg-cyan-300 transition">
+                Khám phá ngay
+            </a>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-navyText mb-16">Tính năng nổi bật</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white rounded-xl shadow hover:shadow-xl transition p-6 border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-navyText mb-3">Tiếp nhận báo cáo</h3>
+                    <p class="text-gray-600">Bạn có thể gửi báo cáo tuần của mình và tôi sẽ ghi nhận.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow hover:shadow-xl transition p-6 border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-navyText mb-3">Đọc và phân tích báo cáo</h3>
+                    <p class="text-gray-600">Tôi có thể giúp bạn hiểu và phân tích nội dung báo cáo.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow hover:shadow-xl transition p-6 border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-navyText mb-3">Biên soạn email chuyên nghiệp</h3>
+                    <p class="text-gray-600">Nếu bạn cần gửi email liên quan đến công việc, tôi có thể giúp bạn soạn thảo.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow hover:shadow-xl transition p-6 border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-navyText mb-3">Phân tích và lập kế hoạch kinh doanh</h3>
+                    <p class="text-gray-600">Tôi có thể tư vấn để bạn đạt được mục tiêu kinh doanh.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow hover:shadow-xl transition p-6 border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-navyText mb-3">Tư vấn chiến lược kinh doanh</h3>
+                    <p class="text-gray-600">Tôi có thể cung cấp các chiến lược để giúp bạn tiếp cận khách hàng.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow hover:shadow-xl transition p-6 border border-gray-200">
+                    <h3 class="text-2xl font-semibold text-navyText mb-3">Tư vấn kế hoạch hành động</h3>
+                    <p class="text-gray-600">Tôi sẽ hỗ trợ bạn lập kế hoạch để đạt mục tiêu cá nhân và nhóm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-navyText mb-8">Làm việc hiệu quả hơn với Trợ lý Kinh doanh AI</h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
+                Trợ lý Kinh doanh AI mang đến những công cụ và giải pháp thiết thực, giúp bạn và đội nhóm tối ưu hóa quy trình làm việc và đạt được hiệu suất cao hơn:
+            </p>
+            <ul class="text-left max-w-2xl mx-auto space-y-4">
+                <li class="flex items-start gap-3">
+                    <span class="text-darkBlue material-icons">check_circle</span>  **Tiết kiệm thời gian:** Tự động hóa các tác vụ tốn thời gian, cho phép bạn tập trung vào những hoạt động mang tính chiến lược và sáng tạo hơn.
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-darkBlue material-icons">check_circle</span>  **Tăng cường hiệu suất:** Cung cấp thông tin và công cụ hỗ trợ để bạn đưa ra quyết định nhanh chóng và chính xác hơn.
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="text-darkBlue material-icons">check_circle</span>  **Cải thiện tổ chức:** Sắp xếp và quản lý công việc một cách khoa học, giúp bạn luôn nắm bắt được tình hình và không bỏ lỡ bất kỳ điều gì quan trọng.
+                </li>
+                 <li class="flex items-start gap-3">
+                    <span class="text-darkBlue material-icons">check_circle</span>  **Đạt được mục tiêu:** Hỗ trợ bạn theo dõi tiến độ, đánh giá hiệu quả và điều chỉnh kế hoạch để đạt được mục tiêu đề ra.
+                </li>
+            </ul>
+            <p class="mt-8 text-lg text-gray-700 max-w-2xl mx-auto">
+               Với Trợ lý Kinh doanh AI, bạn có thể làm việc thông minh hơn, hiệu quả hơn và đạt được nhiều thành công hơn.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-darkBlue text-white text-center py-6 mt-auto">
+        <p>&copy; 2025 Trợ lý Kinh doanh. All rights reserved.</p>
+    </footer>
 </body>
 </html>
